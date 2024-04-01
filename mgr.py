@@ -2,7 +2,12 @@ from DBconnection import DBconnection
 from FoodDetails import FoodDetails
 from TransportationDetails import TransportationDetails
 from CalculateFootprint import CalculateFootprint
-from tabulate import tabulate
+import sys, subprocess
+try:
+    from tabulate import tabulate
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "tabulate"])
+    from tabulate import tabulate
 import datetime
 
 class mgr:        
